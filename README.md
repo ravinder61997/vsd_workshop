@@ -1,7 +1,7 @@
-# vsd_workshop
-This repositry contains the complete flow of RTL to GDSII.
+# VSD Digital VLSI SoC Design and Planning
+# DAY-1 
 The introductory workshop on Day 1 provided a comprehensive overview of the RTL to GDSII flow, elucidating the seamless transformation of Verilog code into physical design. Participants gained insights into the fundamental principles underlying the RISC-V processor architecture, and how these concepts translate into layout design. Crucially, the session delved into the intricate relationship between software applications and hardware, elucidating the pivotal role of compilers in bridging these domains. Additionally, attendees were introduced to the concept of Process Design Kits (PDKs), further enhancing their understanding of the integrated circuit design process.
-OPENLANE in Terminal 
+## OPENLANE in Terminal 
 During this session, we'll dive into the synthesis process for the specific design, picorv32, utilizing the OpenLane flow. Our objective is to generate the netlist and other essential reports following the synthesis step.
 •	Before proceeding, it's imperative to ensure the smooth operation of the virtual machine environment.
 •	Once everything is confirmed to be functioning optimally, we'll observe a terminal interface within the virtual machine environment, resembling the following:
@@ -24,8 +24,8 @@ Executing these commands ensures that we're set up properly and ready to move fo
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/1e825472-b308-4f9d-a571-35b0222c76f2)
 •	We are now ready to execute the synthesis and produce a netlist from the design using the command run_synthesis.
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/9cc142e5-15eb-45b0-8f08-33d04d79d100)
-ASSIGNMENT-1
-	We need to find the Flip-flop ratio. But what is FF ratio and what it indicates?
+### ASSIGNMENT-1
+#### We need to find the Flip-flop ratio. But what is FF ratio and what it indicates?
 The flip-flop ratio in digital design refers to the proportion of flip-flops (sequential elements) to the total number of logic gates (combinational elements) in a circuit. It signifies the balance between storage elements and logic elements within a design. A higher flip-flop ratio indicates a design with more sequential logic, potentially implying higher power consumption and slower clock speeds, while a lower ratio suggests more combinational logic, which might impact design timing and complexity.
 •	In the generated netlist, the D flip-flops are denoted as dfxtp_2 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/fbff20da-04ad-4f61-a9ee-ae676429460e)
