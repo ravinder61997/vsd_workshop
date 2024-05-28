@@ -74,30 +74,53 @@ Pin placement is the process of strategically positioning input/output (I/O) pin
 Placement blockage refers to designated areas within a chip's layout where certain components or structures are not allowed to be placed. These blockages are defined to ensure proper spacing, avoid interference, or reserve space for specific functions such as routing channels or power distribution. Placement blockages are crucial for maintaining design integrity, preventing signal degradation, and optimizing chip layout for efficient manufacturing processes.
 #### Step to run Floorplan Using Openlane – 
 •	Before starting floorplanning, we need certain configuration switches or parameters that we can obtain from OpenLane's configuration-
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/aa757ae6-5cc5-4a4b-9f94-fdf2906b6030)
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/ca088a29-2079-4e0d-a687-df0e9e040039)
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/1063cd5c-898f-4162-989c-0ce09532a783)
+
 •	While the default core utilization ratio is set at 50% and the aspect ratio at 1, these values can be adjusted according to specific requirements. Other parameters can also be modified as needed to meet the given specifications. 
 •	We can see this core utilization when we execute the command floorplan.tcl – 
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/4049a680-3d86-4fb8-b7d0-ba53fed03632)
+
 •	After Completion of Synthesis we will our design is ready for floorplan so we will execute the run_synthesis command and it will generate the Power distribution network (PDN).
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/1034b7a7-906c-44be-bdd0-1f1c7ca70589)
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/b3c0fe18-47e8-423c-930e-daff760ce597)
+
 •	Now we after synthesis and PDN generation we will see the layout of floorplan in magic tool by using the below command - magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/72402657-bf72-4cb5-9ff3-f41a50ee1fd4)
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/34c2218e-e4dc-4203-b04c-2ea047cf0478)
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/66ff061e-24ea-4a91-81f9-b8e3350e573d)
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/d97ad3b9-2bd5-41c3-82b6-a265fab20f6b)
+
 Placement done in two steps  1st is global and after that detailed.
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/79980f41-306e-4656-a05f-aefdbba42bdc)
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/0ef62d71-0877-4675-a915-04cfb28f4922)
+
 •	Now after generating floorplan layout we will generate placement layout in magic tool- magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/8014bf26-0e27-4196-8045-f053b8b04fad)
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/d3456429-3eb7-40f2-be5e-92e77c7547d6)
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/b035b49f-31d9-45c4-9ee2-f0444420a352)
+
 # DAY-2 Assignment-1
 •	To view the floorplan, we need to examine the results. In the results, there is a DEF (Design Exchange Format) file available. Opening this file provides all the information about the die area, specified as (0 0) to (660685 671405). The unit distance is given in microns (1000), meaning 1 micron equals 1000 database units. Therefore, 660685 and 671405 are in database units. By dividing these values by 1000, we can determine the dimensions of the chip in micrometers
+
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/f1970b8a-0aac-40e1-b833-02d1b6bfb35e)
+
 So, the width of chip is 660.685 micrometer and height of the chip is 671.405 micrometer.
 
 
