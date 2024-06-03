@@ -1,6 +1,6 @@
 # VSD Digital VLSI SoC Design and Planning
 # DAY-1 
-The introductory workshop on Day 1 provided a comprehensive overview of the RTL to GDSII flow, elucidating the seamless transformation of Verilog code into physical design. Participants gained insights into the fundamental principles underlying the RISC-V processor architecture, and how these concepts translate into layout design. Crucially, the session delved into the intricate relationship between software applications and hardware, elucidating the pivotal role of compilers in bridging these domains. Additionally, attendees were introduced to the concept of Process Design Kits (PDKs), further enhancing their understanding of the integrated circuit design process.
+The introductory workshop on Day 1 provided a comprehensive overview of the RTL to GDSII flow, elucidating the seamless transformation of Verilog code into physical design. We as participants gained insights into the fundamental principles underlying the RISC-V processor architecture, and how these concepts translate into layout design. Crucially, the session delved into the intricate relationship between software applications and hardware, elucidating the pivotal role of compilers in bridging these domains. Additionally, attendees were introduced to the concept of Process Design Kits (PDKs), further enhancing their understanding of the integrated circuit design process.
 ## OPENLANE in Terminal 
 During this session, we'll dive into the synthesis process for the specific design, picorv32, utilizing the OpenLane flow. Our objective is to generate the netlist and other essential reports following the synthesis step.
 •	Before proceeding, it's imperative to ensure the smooth operation of the virtual machine environment.
@@ -122,6 +122,237 @@ Placement done in two steps  1st is global and after that detailed.
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/f1970b8a-0aac-40e1-b833-02d1b6bfb35e)
 
 So, the width of chip is 660.685 micrometer and height of the chip is 671.405 micrometer.
+
+# Day-3
+# Design Library Using magic layout and Ng spice characterization
+## L0 – SPICE DECK Creation for CMOS inverter 
+The aim is to create a SPICE (Simulation Program with Integrated Circuit Emphasis) deck for a CMOS circuit that involves defining the circuit components, their interconnections, and the simulation parameters. 
+
+<img width="402" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/bb711dc0-7337-41c6-8d73-d7d54230b9d5">
+
+<img width="399" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/63dc6a5b-f728-46ea-a526-359f57945be0">
+
+## L1 – SPICE SIMULATION LAB FOR CMOS INVERTER
+### a.)	When the width of the both n and p mos are same (wp =wn).
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/6fbc3b81-89a1-46cb-a2ac-969536556d72)
+
+### b.)	When width of n and p mos are not equal (wp = 2.5*wn) 
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/7aac5beb-a290-46c8-b267-23199420488e)
+
+RESULTS OBTAINED – 
+
+<img width="231" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1788fa87-0007-4ac2-84a7-6594e92206bd">
+
+<img width="251" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/07ea1859-cc93-4596-8a65-aec5cde72e43">
+
+## L2 – SWITCHING THRESHOLD Vm
+The switching threshold 𝑉𝑚 of a CMOS inverter is the input voltage at which the output voltage is equal to the input voltage. At this point, the inverter is transitioning from one logic level to another (e.g., from high to low or low to high). The switching threshold is an important parameter because it defines the inverter's behaviour in terms of noise margin and signal integrity.
+
+<img width="354" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/39169eb7-3f22-40a2-8c52-ace91ee3a444">
+
+<img width="357" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/70beec04-d63d-4dc9-ba3c-9bf9c1bcf720">
+
+## L3 – Static and Dynamic simulation of CMOS inverter 
+
+<img width="382" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/4a9d5ad4-a620-43d3-93fe-22412ee75216">
+
+## L4 – LAB STEPS TO GIT CLONE vsdstdcelldesign
+### 1.	Clone a custom inverter standard cell design from a GitHub repository.
+#### Change directory to openlane
+cd Desktop/work/tools/openlane_working_dir/openlane
+#### Clone the repository with custom inverter design
+git clone https://github.com/nickson-jose/vsdstdcelldesign
+#### Change into repository directory
+cd vsdstdcelldesign
+#### Copy magic tech file to the repo directory for easy access
+cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech .
+#### Check contents whether everything is present
+Ls -ltr
+#### Command to open custom inverter layout in magic
+magic -T sky130A.tech sky130_inv.mag &
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/eeb33b75-663e-49de-87e5-d20c0584da62)
+
+### 2. Now we will load inverter layout in magic tool 
+
+<img width="388" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/05739bfb-7d69-47af-b6fa-e6b02d41c946">
+
+<img width="398" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a95fd1da-077a-45b9-a9c4-b491cc966128">
+
+### 3.	SPICE extraction of an inverter using the Magic tool involves generating a SPICE netlist from the layout. (#as shown in the above fig)
+#### Check current directory 
+pwd 
+#### Extraction command to extract to .ext format
+extract all
+#### Before converting ext to spice this command enable the parasitic extraction also
+ext2spice cthresh 0 rthresh 0
+#### Converting to ext to spice
+ext2spice
+#### Here we used vim command to edit SPICE file
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/a7f0c1aa-d053-460f-97fb-712b63942730)
+
+### 4.	Post-layout ngspice simulations.
+Here are the given commands to perform ngspice simulations
+#### Command to directly load spice file for simulation to ngspice
+ngspice sky130_inv.spice
+ 
+#### Now that we have entered ngspice with the simulation spice file loaded we just have to load the plot
+plot y vs time a
+
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/92fa743c-99e4-4297-bca3-8c0293ac9cb3)
+
+<img width="368" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/34017336-b3a3-4f06-b762-1538e6af6e77">
+
+Here I have given the screenshot of generated plot of O/P (a) vs O/P(y) - 
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/1184ba8b-a401-4c71-9d3c-1d88be51196d)
+
+## ASSIGNMENT -1
+After getting plot we have to find out the value of 4 – parameter –
+1.	Rise Transition time. 
+2.	Fall Transition time.  
+3.	Fall cell delay. 
+4.	Rise cell delay.
+
+First let’s understand what are those delay means - 
+1.	Rise Transition time - Rise transition time is the time it takes for a signal to transition from a low voltage level (typically 20% of the maximum value) to a high voltage level (typically 80% of the maximum value). It is a critical parameter in evaluating the speed and performance of digital circuits.
+2.	Fall Transition time - Fall transition time is the duration for a signal to change from a high voltage level (typically 80% of the maximum value) to a low voltage level (typically 20% of the maximum value). It is crucial for assessing the speed and performance of digital circuits.
+3.	Fall cell delay – Fall cell delay is the time it takes for a cell's output to transition from a high voltage level to a low voltage level after the input signal triggers the change.
+4.	Rise cell delay - Fall cell delay is the time interval between the input signal reaching a defined threshold and the output signal falling from a high to a low voltage level.
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/7d257ddf-b7a7-4eba-ac2c-105d8afb994a)
+
+Inside the box we have desired values from the plot now we can calculate the delays – 
+X0 = 2.19884e-09   Y0 = 0.702651        X0’ = 2.31586e-09        Y0’ = 2.80043 
+Rise Transition time(tr) = (X0’-X0)                   tr = 0.117 ns  
+X0 = 4.05931e-09   Y0 = 2.80024           X0’ = 4.10707e-09      Y0’ = 0.700482 
+ Fall Transition time(tr) = (X0’-X0)                   tr = 0.0477 ns
+X0 = 2.14667e-09    Y0 = 1.7512         X0’ = 2.24138       Y0’ = 1.7504
+Rise cell delay (trc) = (X0’-X0)                   trc = 0.09471 ns
+X0 = 4.05264e-09    Y0 =   1.74977                            X0’ = 4.08713e-09      Y0’  = 1.75023
+fall cell delay (tfc) = (X0’-X0)                   tfc = 0.035 ns
+
+5.	Identify issues in the Design Rule Check (DRC) section of the old Magic Tech file for the SkyWater process and correct them.
+Here are the following commands mentioned to download and view the corrupted skywater magic tech file – 
+# Change to home directory
+cd
+# Command to download the lab files
+wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
+# Since lab file is compressed command to extract it
+tar xfz drc_tests.tgz
+# Change directory into the lab folder
+cd drc_tests
+# List all files and directories present in the current directory
+ls -al
+# Command to view .magicrc file
+gvim .magicrc
+# Command to open magic tool in better graphics
+magic -d XR &
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/16f2a9dd-556b-404b-8422-5e0c843e670e)
+
+.magicrc file
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/c36144d0-0f65-419d-a756-beb1a00ccc7d)
+
+open met3.mag file in magic tool as shown in below fig - 
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/4a91eb96-940d-43af-834f-2a18cc3540a7)
+
+Different Layout and Different DRC as shown in below fig – 
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/1ae2162a-406b-44c5-bdce-01e83093eff1)
+
+DRC for selected layout area - 
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/2a81efc4-33e9-4f80-970d-ce98bbca57c5)
+
+VIA2 file - 
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/8195fe43-8bea-4f7d-a205-24e60a33521f)
+
+Screenshot of poly rules and link is given below - 
+https://skywater- pdk.readthedocs.io/en/main/rules/periphery.html#poly
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/db2c31dc-a9ea-460a-9e14-0c0c99e2e996)
+
+The difftap.2 rule is incorrectly implemented, resulting in no DRC violation even when the spacing is less than 0.42µm.
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/6b6c4c32-87dd-4f8d-90dc-4899300471d6)
+
+To update DRC new command is inserted using vim in sky130A.tech
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/0e0b7cab-6876-424d-bbb8-62b8a1d11ba5)
+
+# Loading updated tech file
+tech load sky130A.tech
+# Must re-run drc check to see updated drc errors
+drc check
+# Selecting region displaying the new errors and getting the error messages 
+drc why
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/c1cff9c5-1861-48ee-8012-d9580e98905d)
+
+<img width="368" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/92120127-1c05-43db-83ab-b9d8857636f7">
+
+Incorrectly implemented nwell.4 complex rule correction – 
+These are the following nwell rule -
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/f3b6c3d7-2ece-44e9-91f7-e43eae69e1f3)
+
+Incorrectly implemented nwell.4 rule no drc violation even though no tap present in nwell – 
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/7d6cd06a-3ede-4aba-9b9c-ccd873bf00b9)
+
+To update DRC new command is inserted in sky130A.tech file 
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/889fdf7a-029f-4573-b4c6-9364019b70f8)
+
+<img width="386" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1c829f11-97bf-4e72-ad9a-1f24e9c4aab4">
+
+Command to run in magic tkcon window – 
+#Loading updated tech file 
+tech load sky130A.tech
+#change drc style
+drc style drc(full)
+#check drc 
+drc check
+#See errors in selecting area 
+drc why
+
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/12fe53a3-47e7-4843-abc3-db264c3e3652)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
