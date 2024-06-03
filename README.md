@@ -135,11 +135,11 @@ The aim is to create a SPICE (Simulation Program with Integrated Circuit Emphasi
 ## L1 – SPICE SIMULATION LAB FOR CMOS INVERTER
 ### a.)	When the width of the both n and p mos are same (wp =wn).
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/6fbc3b81-89a1-46cb-a2ac-969536556d72)
+<img width="319" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/f9ffaad4-2177-442b-bfbf-8dd0f5106b20">
 
 ### b.)	When width of n and p mos are not equal (wp = 2.5*wn) 
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/7aac5beb-a290-46c8-b267-23199420488e)
+<img width="329" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/f9959661-5892-4317-90ea-e0b282eed51d">
 
 RESULTS OBTAINED – 
 
@@ -173,7 +173,7 @@ Ls -ltr
 #### Command to open custom inverter layout in magic
 magic -T sky130A.tech sky130_inv.mag &
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/eeb33b75-663e-49de-87e5-d20c0584da62)
+<img width="366" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/44e111d6-9412-4b97-98c2-5a5416fdc267">
 
 ### 2. Now we will load inverter layout in magic tool 
 
@@ -192,7 +192,7 @@ ext2spice cthresh 0 rthresh 0
 ext2spice
 #### Here we used vim command to edit SPICE file
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/a7f0c1aa-d053-460f-97fb-712b63942730)
+<img width="433" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/4da1fa2b-5b8a-465b-8fd7-dc5b8442f3f7">
 
 ### 4.	Post-layout ngspice simulations.
 Here are the given commands to perform ngspice simulations
@@ -202,14 +202,13 @@ ngspice sky130_inv.spice
 #### Now that we have entered ngspice with the simulation spice file loaded we just have to load the plot
 plot y vs time a
 
-
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/92fa743c-99e4-4297-bca3-8c0293ac9cb3)
+<img width="374" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/53b1910c-1aae-4cbd-8510-87dc5243702f">
 
 <img width="368" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/34017336-b3a3-4f06-b762-1538e6af6e77">
 
 Here I have given the screenshot of generated plot of O/P (a) vs O/P(y) - 
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/1184ba8b-a401-4c71-9d3c-1d88be51196d)
+<img width="376" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/650cc103-f01e-40dd-9b97-24669eeeb472">
 
 ## ASSIGNMENT -1
 After getting plot we have to find out the value of 4 – parameter –
@@ -253,40 +252,40 @@ gvim .magicrc
 # Command to open magic tool in better graphics
 magic -d XR &
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/16f2a9dd-556b-404b-8422-5e0c843e670e)
+<img width="530" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/ee8acaa2-9a5e-4ba1-9a67-5831127269e0">
 
 .magicrc file
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/c36144d0-0f65-419d-a756-beb1a00ccc7d)
+<img width="527" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/0c1f4b49-61ac-46dd-a82f-8b77b656f44f">
 
 open met3.mag file in magic tool as shown in below fig - 
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/4a91eb96-940d-43af-834f-2a18cc3540a7)
+<img width="432" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/84e1ef3c-a387-4960-8a04-87bc7e6274c2">
 
 Different Layout and Different DRC as shown in below fig – 
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/1ae2162a-406b-44c5-bdce-01e83093eff1)
+<img width="399" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/e90fa383-668a-4124-b07a-5693a2ce03c2">
 
 DRC for selected layout area - 
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/2a81efc4-33e9-4f80-970d-ce98bbca57c5)
+<img width="385" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/59d045b0-f286-4dcd-8080-9e914b4f5e84">
 
 VIA2 file - 
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/8195fe43-8bea-4f7d-a205-24e60a33521f)
+<img width="398" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/49fc3eac-ef6b-498e-a4a3-2ad170d56223">
 
 Screenshot of poly rules and link is given below - 
 https://skywater- pdk.readthedocs.io/en/main/rules/periphery.html#poly
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/db2c31dc-a9ea-460a-9e14-0c0c99e2e996)
+<img width="313" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/800e0178-e8fe-4ade-8772-b5e269a7e9ef">
 
 The difftap.2 rule is incorrectly implemented, resulting in no DRC violation even when the spacing is less than 0.42µm.
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/6b6c4c32-87dd-4f8d-90dc-4899300471d6)
+<img width="338" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/66f1a797-5364-4a20-af80-023631dd1578">
 
 To update DRC new command is inserted using vim in sky130A.tech
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/0e0b7cab-6876-424d-bbb8-62b8a1d11ba5)
+<img width="367" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/2a8e6882-6d47-430b-850b-13d961a6e6cb">
 
 # Loading updated tech file
 tech load sky130A.tech
@@ -295,22 +294,22 @@ drc check
 # Selecting region displaying the new errors and getting the error messages 
 drc why
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/c1cff9c5-1861-48ee-8012-d9580e98905d)
+<img width="355" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/5bb45ec2-02d8-4430-9ac2-19366d535fd2">
 
 <img width="368" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/92120127-1c05-43db-83ab-b9d8857636f7">
 
 Incorrectly implemented nwell.4 complex rule correction – 
 These are the following nwell rule -
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/f3b6c3d7-2ece-44e9-91f7-e43eae69e1f3)
+<img width="341" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/b24b2dcc-c5f2-4d4c-b225-033ed1f45386">
 
 Incorrectly implemented nwell.4 rule no drc violation even though no tap present in nwell – 
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/7d6cd06a-3ede-4aba-9b9c-ccd873bf00b9)
+<img width="323" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/d2419445-402d-4a7e-a5c9-4acb58a37342">
 
 To update DRC new command is inserted in sky130A.tech file 
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/889fdf7a-029f-4573-b4c6-9364019b70f8)
+<img width="376" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/6a6d9314-9e52-4a78-9065-1cd5303b029c">
 
 <img width="386" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1c829f11-97bf-4e72-ad9a-1f24e9c4aab4">
 
@@ -324,7 +323,8 @@ drc check
 #See errors in selecting area 
 drc why
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/12fe53a3-47e7-4843-abc3-db264c3e3652)
+<img width="372" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/692ed706-7855-4209-a7c3-5b87cde7e8f3">
+
 
 
 
