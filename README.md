@@ -223,7 +223,7 @@ First let’s understand what are those delay means -
 3.	Fall cell delay – Fall cell delay is the time it takes for a cell's output to transition from a high voltage level to a low voltage level after the input signal triggers the change.
 4.	Rise cell delay - Fall cell delay is the time interval between the input signal reaching a defined threshold and the output signal falling from a high to a low voltage level.
 
-![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/7d257ddf-b7a7-4eba-ac2c-105d8afb994a)
+<img width="418" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/c010bbbb-047c-4ad6-866f-89261665454a">
 
 Inside the box we have desired values from the plot now we can calculate the delays – 
 X0 = 2.19884e-09   Y0 = 0.702651        X0’ = 2.31586e-09        Y0’ = 2.80043 
@@ -287,11 +287,11 @@ To update DRC new command is inserted using vim in sky130A.tech
 
 <img width="367" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/2a8e6882-6d47-430b-850b-13d961a6e6cb">
 
-# Loading updated tech file
+#### Loading updated tech file
 tech load sky130A.tech
-# Must re-run drc check to see updated drc errors
+#### Must re-run drc check to see updated drc errors
 drc check
-# Selecting region displaying the new errors and getting the error messages 
+#### Selecting region displaying the new errors and getting the error messages 
 drc why
 
 <img width="355" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/5bb45ec2-02d8-4430-9ac2-19366d535fd2">
