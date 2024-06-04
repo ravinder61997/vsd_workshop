@@ -267,7 +267,7 @@ First let’s understand what are those delay means -
 3.	Fall cell delay – Fall cell delay is the time it takes for a cell's output to transition from a high voltage level to a low voltage level after the input signal triggers the change.
 4.	Rise cell delay - Fall cell delay is the time interval between the input signal reaching a defined threshold and the output signal falling from a high to a low voltage level.
 
-<img width="418" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/c010bbbb-047c-4ad6-866f-89261665454a">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/c010bbbb-047c-4ad6-866f-89261665454a">
 
 Inside the box we have desired values from the plot now we can calculate the delays – 
 X0 = 2.19884e-09   Y0 = 0.702651        X0’ = 2.31586e-09        Y0’ = 2.80043 
