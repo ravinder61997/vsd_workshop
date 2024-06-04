@@ -396,6 +396,205 @@ _drc why_
 
 <img width="372" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/692ed706-7855-4209-a7c3-5b87cde7e8f3">
 
+# Day 4
+## Pre–Layout Timing Analysis and importance of good clock tree
+## Timing modeling Using Delay table 
+**1.Lab Steps to Convert grid info to track info **
+
+Next, we need to extract the .lef file from the .mag file and place it into the picorv32a flow.
+
+So from PnR point of view we need to follow some rules –
+
+1.	I/p and O/p port must lie on the intersection of horizontal and vertical track.
+2.	Width of standard cell = odd*track pitch 
+3.	Height of standard cell = odd * track pitch 
+So we will see how accurate is the layout –
+
+Now we will open the track file using below command – 
+
+_track_file_
+_pdk/sky130/libs.tech /openlane/sky130_fd_sc_hd/track.info_
+
+<img width="345" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/02a781dd-dc59-4451-a72c-437413e2d7e7">
+
+<img width="349" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/ce7f5024-b06d-4f01-a07b-cbd25cec746c">
+
+Tracks are used during the routing stage and serve as traces for metal layers such as Metal 1, Metal 2, etc.
+
+Since Place and Route (PNR) is automated, we need to specify the desired routing paths using tracks. For the layers li1, Metal 1, and Metal 2, tracks should be placed at intervals of 0.23µm and 0.46µm horizontally, and 0.17µm and 0.34µm vertically.
+
+In the layout, the ports are located on the li1 layer. To ensure the ports align with the intersections of the tracks, we need to convert the grid into tracks.
+
+#for grid generation in tkcon window we will use this command 
+_help grid_
+
+<img width="372" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/e610519a-cdf3-4ad3-a861-7176fd9de195">
+
+<img width="388" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a0b66fd3-2c71-43ed-a924-47034ee34446">
+
+**Lab steps to convert magic layout to std cell LEF
+
+Next, we need to determine the names and values for the ports. We can assign values to different ports, and for the power and ground ports, we must change the 'attach to layer' setting to Metal1.
+
+<img width="371" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/8993eee1-407a-4bc4-8efd-ff6afbe858f0">
+
+<img width="372" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/088a4d68-30a0-4626-ae30-5a76b0cb2d30">
+
+Once these parameters are configured, we will be ready to extract the LEF file from the .mag file.
+
+<img width="415" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/29220191-3496-4f8f-98d2-de8de863c4e6">
+
+Now we will open this file in magic with the help of below command –
+
+#open lef file in magic using below command 
+_magic -T sky130A.tech sky130_vsdinv.mag &_
+
+<img width="402" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/27a21e1b-8e2b-4aa9-99cf-86b3f88bb823">
+
+**Introduction to timing libs and steps to include new cell in synthesis
+With the .lef file created, the next step is to integrate it into picorv32a. Before doing this, we need to move the files to the src folder, where all the design files are located.
+
+To do this we can copy the file using command _cp _
+
+<img width="436" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a29b7fbe-fd51-4c9f-9d3a-716004d5de17">
+
+<img width="427" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a20f600b-1393-4375-bb17-884bb60cc876">
+
+<img width="416" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/5c0c8d85-adad-46c2-8c9d-812c5b44072f">
+
+Now we have different library file names fast,slow and typical that we can see by using the below command – 
+
+<img width="397" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/d572f376-b001-49d4-8e68-bb98a8a0904e">
+
+To proceed, we'll need to edit the config.tcl file within the picorv32a directory. 
+Open the config.tcl file and insert the commands depicted in the image below.
+
+<img width="373" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/d16a5cbd-4f5d-452c-9e9d-3fbad1f0c753">
+
+**OPENLANE:  Now we will go to the open lane directory and we will execute the docker command –
+_./flow.tcl -interactive_
+
+_package require openlane 0.9_
+
+_prep -design picorv32a -tag 31-05_10-14 -overwrite_
+
+_set lefs [glob $::env(DESIGN_DIR)/src/*.lef]_   
+
+_add_lefs -src $lefs_
+
+_run_synthesis_
+
+<img width="415" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1f45a8a8-94f5-4d95-b19b-67907d532f6a">
+
+<img width="456" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/01602270-30cc-4615-8992-505a6c8d5809">
+
+<img width="458" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/32830d56-077a-4c1e-867f-95e0a7e9c6d2">
+
+**Lab Steps to configure synthesis settings to fix slack and include vsdinv
+
+We'll attempt to adjust the parameters of our cell by consulting the README.md file located in the configuration folder within the OpenLANE directory. This README.md file provides details about the cell parameters.
+
+<img width="419" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/118d3f19-aa3f-40b8-8cbf-17ded2162b63">
+
+Now we will give the certain commands to openlane directory after modification in README.md file –
+
+_prep -design picorv32a -tag 01-04_12-54 -overwrite_
+
+_set lefs [glob $::env(DESIGN_DIR)/src/*.lef]_
+
+_add_lefs -src $lefs_
+
+_echo $::env(SYNTH_STRATEGY)_
+
+_set ::env(SYNTH_STRATEGY) "DELAY 3"_
+
+_echo $::env(SYNTH_BUFFERING)_
+
+_echo $::env(SYNTH_SIZING)_
+
+_set ::env(SYNTH_SIZING) 1_
+
+_echo $::env(SYNTH_DRIVING_CELL)_
+
+_run_synthesis_
+
+_prep -design picorv32a -tag 01-04_12-54 -overwrite_
+
+This is utilized to replace the current files with previous simulation values 
+
+After synthesis we got negative slack values for both wsn(worst negative slack) and tns(total negative slack). These values should be positive for proper functioning of our design.
+
+wns(worst negative slack)= -23.89 ns
+
+tns(total negative slack)= -709.98 ns
+
+<img width="429" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a177e7e3-9b6f-423f-bfa2-b7841c6e9e40">
+
+<img width="437" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/76fb0fbb-8050-4ad6-af55-7897b83f43cf">
+
+Upon executing run_synthesis, we observe an increase in chip area and a reduction in the value of slack.
+
+Given the successful completion of the synthesis for the picorv32a, we'll proceed to initiate the floorplan by running the command _run_floorplan_.
+
+<img width="440" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/3c6fd0ab-afc0-4005-9e88-75cd5ab3f6c9">
+
+Here we are getting errors so again we will open the docker and run synthesis using the command given above and after that we will follow the these commands and analyse the results-
+
+_init_floorplan_
+
+_place_io_
+
+_tap_decap_or_
+
+<img width="511" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a40c528f-034f-44fe-8002-42d6156b10a3">
+
+<img width="495" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/f3d8a9dd-5b90-47a6-a938-e7703a109777">
+
+<img width="502" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/6e04d5fc-aec1-4a3d-9b99-8c76c56dd510">
+
+<img width="431" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/cf07fd58-56f6-4dda-a6b8-3b45d74f0a7d">
+
+<img width="419" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/8a5e47e3-718a-4602-9ca9-5ced52bea469">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
