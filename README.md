@@ -170,33 +170,33 @@ The aim is to create a SPICE (Simulation Program with Integrated Circuit Emphasi
 
 <img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/bb711dc0-7337-41c6-8d73-d7d54230b9d5">
 
-<img width="350" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/63dc6a5b-f728-46ea-a526-359f57945be0">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/63dc6a5b-f728-46ea-a526-359f57945be0">
 
 ## L1 – SPICE SIMULATION LAB FOR CMOS INVERTER
 ### a.)	When the width of the both n and p mos are same (wp =wn).
 
-<img width="350" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/f9ffaad4-2177-442b-bfbf-8dd0f5106b20">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/f9ffaad4-2177-442b-bfbf-8dd0f5106b20">
 
 ### b.)	When width of n and p mos are not equal (wp = 2.5*wn) 
 
-<img width="350" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/f9959661-5892-4317-90ea-e0b282eed51d">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/f9959661-5892-4317-90ea-e0b282eed51d">
 
 RESULTS OBTAINED – 
 
-<img width="350" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1788fa87-0007-4ac2-84a7-6594e92206bd">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1788fa87-0007-4ac2-84a7-6594e92206bd">
 
-<img width="350" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/07ea1859-cc93-4596-8a65-aec5cde72e43">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/07ea1859-cc93-4596-8a65-aec5cde72e43">
 
 ## L2 – SWITCHING THRESHOLD Vm
 The switching threshold 𝑉𝑚 of a CMOS inverter is the input voltage at which the output voltage is equal to the input voltage. At this point, the inverter is transitioning from one logic level to another (e.g., from high to low or low to high). The switching threshold is an important parameter because it defines the inverter's behaviour in terms of noise margin and signal integrity.
 
-<img width="354" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/39169eb7-3f22-40a2-8c52-ace91ee3a444">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/39169eb7-3f22-40a2-8c52-ace91ee3a444">
 
-<img width="357" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/70beec04-d63d-4dc9-ba3c-9bf9c1bcf720">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/70beec04-d63d-4dc9-ba3c-9bf9c1bcf720">
 
 ## L3 – Static and Dynamic simulation of CMOS inverter 
 
-<img width="382" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/4a9d5ad4-a620-43d3-93fe-22412ee75216">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/4a9d5ad4-a620-43d3-93fe-22412ee75216">
 
 ## L4 – LAB STEPS TO GIT CLONE vsdstdcelldesign
 
@@ -215,13 +215,13 @@ _ls -ltr_
 #Command to open custom inverter layout in magic
 _magic -T sky130A.tech sky130_inv.mag &_
 
-<img width="366" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/44e111d6-9412-4b97-98c2-5a5416fdc267">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/44e111d6-9412-4b97-98c2-5a5416fdc267">
 
 #### 2. Now we will load inverter layout in magic tool 
 
-<img width="388" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/05739bfb-7d69-47af-b6fa-e6b02d41c946">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/05739bfb-7d69-47af-b6fa-e6b02d41c946">
 
-<img width="398" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a95fd1da-077a-45b9-a9c4-b491cc966128">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a95fd1da-077a-45b9-a9c4-b491cc966128">
 
 #### 3.	SPICE extraction of an inverter using the Magic tool involves generating a SPICE netlist from the layout. (#as shown in the above fig)
 
@@ -235,7 +235,7 @@ _ext2spice cthresh 0 rthresh 0_
 _ext2spice_
 #Here we used vim command to edit SPICE file
 
-<img width="433" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/4da1fa2b-5b8a-465b-8fd7-dc5b8442f3f7">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/4da1fa2b-5b8a-465b-8fd7-dc5b8442f3f7">
 
 #### 4.	Post-layout ngspice simulations.
 
@@ -246,13 +246,13 @@ _ngspice sky130_inv.spice_
 #Now that we have entered ngspice with the simulation spice file loaded we just have to load the plot
 _plot y vs time a_
 
-<img width="374" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/53b1910c-1aae-4cbd-8510-87dc5243702f">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/53b1910c-1aae-4cbd-8510-87dc5243702f">
 
-<img width="368" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/34017336-b3a3-4f06-b762-1538e6af6e77">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/34017336-b3a3-4f06-b762-1538e6af6e77">
 
 Here I have given the screenshot of generated plot of O/P (a) vs O/P(y) - 
 
-<img width="376" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/650cc103-f01e-40dd-9b97-24669eeeb472">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/650cc103-f01e-40dd-9b97-24669eeeb472">
 
 ### ASSIGNMENT -3
 After getting plot we have to find out the value of 4 – parameter –
@@ -310,40 +310,40 @@ _gvim .magicrc_
 
 _magic -d XR &_
 
-<img width="530" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/ee8acaa2-9a5e-4ba1-9a67-5831127269e0">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/ee8acaa2-9a5e-4ba1-9a67-5831127269e0">
 
 _.magicrc file_
 
-<img width="527" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/0c1f4b49-61ac-46dd-a82f-8b77b656f44f">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/0c1f4b49-61ac-46dd-a82f-8b77b656f44f">
 
 open met3.mag file in magic tool as shown in below fig - 
 
-<img width="432" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/84e1ef3c-a387-4960-8a04-87bc7e6274c2">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/84e1ef3c-a387-4960-8a04-87bc7e6274c2">
 
 Different Layout and Different DRC as shown in below fig – 
 
-<img width="399" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/e90fa383-668a-4124-b07a-5693a2ce03c2">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/e90fa383-668a-4124-b07a-5693a2ce03c2">
 
 DRC for selected layout area - 
 
-<img width="385" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/59d045b0-f286-4dcd-8080-9e914b4f5e84">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/59d045b0-f286-4dcd-8080-9e914b4f5e84">
 
 VIA2 file - 
 
-<img width="398" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/49fc3eac-ef6b-498e-a4a3-2ad170d56223">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/49fc3eac-ef6b-498e-a4a3-2ad170d56223">
 
 Screenshot of poly rules and link is given below - 
 https://skywater- pdk.readthedocs.io/en/main/rules/periphery.html#poly
 
-<img width="313" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/800e0178-e8fe-4ade-8772-b5e269a7e9ef">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/800e0178-e8fe-4ade-8772-b5e269a7e9ef">
 
 The difftap.2 rule is incorrectly implemented, resulting in no DRC violation even when the spacing is less than 0.42µm.
 
-<img width="338" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/66f1a797-5364-4a20-af80-023631dd1578">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/66f1a797-5364-4a20-af80-023631dd1578">
 
 To update DRC new command is inserted using vim in sky130A.tech
 
-<img width="367" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/2a8e6882-6d47-430b-850b-13d961a6e6cb">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/2a8e6882-6d47-430b-850b-13d961a6e6cb">
 
 #Loading updated tech file
 
@@ -357,24 +357,24 @@ _drc check_
 
 _drc why_
 
-<img width="355" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/5bb45ec2-02d8-4430-9ac2-19366d535fd2">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/5bb45ec2-02d8-4430-9ac2-19366d535fd2">
 
-<img width="368" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/92120127-1c05-43db-83ab-b9d8857636f7">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/92120127-1c05-43db-83ab-b9d8857636f7">
 
 Incorrectly implemented nwell.4 complex rule correction – 
 These are the following nwell rule -
 
-<img width="341" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/b24b2dcc-c5f2-4d4c-b225-033ed1f45386">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/b24b2dcc-c5f2-4d4c-b225-033ed1f45386">
 
 Incorrectly implemented nwell.4 rule no drc violation even though no tap present in nwell – 
 
-<img width="323" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/d2419445-402d-4a7e-a5c9-4acb58a37342">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/d2419445-402d-4a7e-a5c9-4acb58a37342">
 
 To update DRC new command is inserted in sky130A.tech file 
 
-<img width="376" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/6a6d9314-9e52-4a78-9065-1cd5303b029c">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/6a6d9314-9e52-4a78-9065-1cd5303b029c">
 
-<img width="386" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1c829f11-97bf-4e72-ad9a-1f24e9c4aab4">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1c829f11-97bf-4e72-ad9a-1f24e9c4aab4">
 
 Command to run in magic tkcon window – 
 
@@ -394,7 +394,7 @@ _drc check_
 
 _drc why_
 
-<img width="372" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/692ed706-7855-4209-a7c3-5b87cde7e8f3">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/692ed706-7855-4209-a7c3-5b87cde7e8f3">
 
 # Day 4
 ## Pre–Layout Timing Analysis and importance of good clock tree
@@ -415,9 +415,9 @@ Now we will open the track file using below command –
 _track_file_
 _pdk/sky130/libs.tech /openlane/sky130_fd_sc_hd/track.info_
 
-<img width="345" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/02a781dd-dc59-4451-a72c-437413e2d7e7">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/02a781dd-dc59-4451-a72c-437413e2d7e7">
 
-<img width="349" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/ce7f5024-b06d-4f01-a07b-cbd25cec746c">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/ce7f5024-b06d-4f01-a07b-cbd25cec746c">
 
 Tracks are used during the routing stage and serve as traces for metal layers such as Metal 1, Metal 2, etc.
 
@@ -428,28 +428,28 @@ In the layout, the ports are located on the li1 layer. To ensure the ports align
 #for grid generation in tkcon window we will use this command 
 _help grid_
 
-<img width="372" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/e610519a-cdf3-4ad3-a861-7176fd9de195">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/e610519a-cdf3-4ad3-a861-7176fd9de195">
 
-<img width="388" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a0b66fd3-2c71-43ed-a924-47034ee34446">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a0b66fd3-2c71-43ed-a924-47034ee34446">
 
 **Lab steps to convert magic layout to std cell LEF**
 
 Next, we need to determine the names and values for the ports. We can assign values to different ports, and for the power and ground ports, we must change the 'attach to layer' setting to Metal1.
 
-<img width="371" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/8993eee1-407a-4bc4-8efd-ff6afbe858f0">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/8993eee1-407a-4bc4-8efd-ff6afbe858f0">
 
-<img width="372" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/088a4d68-30a0-4626-ae30-5a76b0cb2d30">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/088a4d68-30a0-4626-ae30-5a76b0cb2d30">
 
 Once these parameters are configured, we will be ready to extract the LEF file from the .mag file.
 
-<img width="415" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/29220191-3496-4f8f-98d2-de8de863c4e6">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/29220191-3496-4f8f-98d2-de8de863c4e6">
 
 Now we will open this file in magic with the help of below command –
 
 #open lef file in magic using below command 
 _magic -T sky130A.tech sky130_vsdinv.mag &_
 
-<img width="402" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/27a21e1b-8e2b-4aa9-99cf-86b3f88bb823">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/27a21e1b-8e2b-4aa9-99cf-86b3f88bb823">
 
 **Introduction to timing libs and steps to include new cell in synthesis**
 
@@ -457,20 +457,20 @@ With the .lef file created, the next step is to integrate it into picorv32a. Bef
 
 To do this we can copy the file using command _cp _
 
-<img width="436" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a29b7fbe-fd51-4c9f-9d3a-716004d5de17">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a29b7fbe-fd51-4c9f-9d3a-716004d5de17">
 
-<img width="427" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a20f600b-1393-4375-bb17-884bb60cc876">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a20f600b-1393-4375-bb17-884bb60cc876">
 
-<img width="416" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/5c0c8d85-adad-46c2-8c9d-812c5b44072f">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/5c0c8d85-adad-46c2-8c9d-812c5b44072f">
 
 Now we have different library file names fast,slow and typical that we can see by using the below command – 
 
-<img width="397" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/d572f376-b001-49d4-8e68-bb98a8a0904e">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/d572f376-b001-49d4-8e68-bb98a8a0904e">
 
 To proceed, we'll need to edit the config.tcl file within the picorv32a directory. 
 Open the config.tcl file and insert the commands depicted in the image below.
 
-<img width="373" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/d16a5cbd-4f5d-452c-9e9d-3fbad1f0c753">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/d16a5cbd-4f5d-452c-9e9d-3fbad1f0c753">
 
 **OPENLANE:**
 
@@ -487,17 +487,17 @@ _add_lefs -src $lefs_
 
 _run_synthesis_
 
-<img width="415" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1f45a8a8-94f5-4d95-b19b-67907d532f6a">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1f45a8a8-94f5-4d95-b19b-67907d532f6a">
 
-<img width="456" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/01602270-30cc-4615-8992-505a6c8d5809">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/01602270-30cc-4615-8992-505a6c8d5809">
 
-<img width="458" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/32830d56-077a-4c1e-867f-95e0a7e9c6d2">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/32830d56-077a-4c1e-867f-95e0a7e9c6d2">
 
 **Lab Steps to configure synthesis settings to fix slack and include vsdinv**
 
 We'll attempt to adjust the parameters of our cell by consulting the README.md file located in the configuration folder within the OpenLANE directory. This README.md file provides details about the cell parameters.
 
-<img width="419" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/118d3f19-aa3f-40b8-8cbf-17ded2162b63">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/118d3f19-aa3f-40b8-8cbf-17ded2162b63">
 
 Now we will give the certain commands to openlane directory after modification in README.md file –
 
@@ -531,15 +531,15 @@ wns(worst negative slack)= -23.89 ns
 
 tns(total negative slack)= -709.98 ns
 
-<img width="429" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a177e7e3-9b6f-423f-bfa2-b7841c6e9e40">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a177e7e3-9b6f-423f-bfa2-b7841c6e9e40">
 
-<img width="437" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/76fb0fbb-8050-4ad6-af55-7897b83f43cf">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/76fb0fbb-8050-4ad6-af55-7897b83f43cf">
 
 Upon executing run_synthesis, we observe an increase in chip area and a reduction in the value of slack.
 
 Given the successful completion of the synthesis for the picorv32a, we'll proceed to initiate the floorplan by running the command _run_floorplan_.
 
-<img width="440" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/3c6fd0ab-afc0-4005-9e88-75cd5ab3f6c9">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/3c6fd0ab-afc0-4005-9e88-75cd5ab3f6c9">
 
 Here we are getting errors so again we will open the docker and run synthesis using the command given above and after that we will follow the these commands and analyse the results-
 
@@ -549,15 +549,15 @@ _place_io_
 
 _tap_decap_or_
 
-<img width="511" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a40c528f-034f-44fe-8002-42d6156b10a3">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a40c528f-034f-44fe-8002-42d6156b10a3">
 
-<img width="495" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/f3d8a9dd-5b90-47a6-a938-e7703a109777">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/f3d8a9dd-5b90-47a6-a938-e7703a109777">
 
-<img width="502" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/6e04d5fc-aec1-4a3d-9b99-8c76c56dd510">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/6e04d5fc-aec1-4a3d-9b99-8c76c56dd510">
 
-<img width="431" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/cf07fd58-56f6-4dda-a6b8-3b45d74f0a7d">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/cf07fd58-56f6-4dda-a6b8-3b45d74f0a7d">
 
-<img width="419" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/8a5e47e3-718a-4602-9ca9-5ced52bea469">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/8a5e47e3-718a-4602-9ca9-5ced52bea469">
 
 # Day 5
 
@@ -584,58 +584,58 @@ _prep design picorv32a tag $date_ (date should be retrieved by executing ls)
 
 _echo $::env(CURRENT_DEF)_
 
-<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/36d25b56-5fe0-41df-9c88-bfb5e53c8658">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/36d25b56-5fe0-41df-9c88-bfb5e53c8658">
 
 _gen_pdn_
 
-<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/319aacc8-1e69-4bc7-9736-87f0d5cd4c18">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/319aacc8-1e69-4bc7-9736-87f0d5cd4c18">
 
-<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/b28996b5-cb33-45ce-82a6-2bf3dc72be0a">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/b28996b5-cb33-45ce-82a6-2bf3dc72be0a">
 
 Below image shows that PDN is generated successfully.
 
-<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/ee8a4f6c-443b-44f1-9a77-a9372bdc4c57">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/ee8a4f6c-443b-44f1-9a77-a9372bdc4c57">
 
 
 The resulting file 15-pdn.def contains the information from cts.def as well as the power distribution network.
 
 Below image shows README.md file located in the configuration folder of the OpenLANE directory. One can refer to this file to understand about the various switches available for routing.
 
-<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/39fafc00-e4ff-413f-8632-d734471edefb">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/39fafc00-e4ff-413f-8632-d734471edefb">
 
 There are two types of routing, one is global routing and second is Detailed routing. For default, global routing is used. Command to run default routing:
 
 _run_routing_
 
-<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/2d2e9359-0a74-4e63-996b-0fe1bd4f8a47">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/2d2e9359-0a74-4e63-996b-0fe1bd4f8a47">
 
 After executing the command _run_routing_ our slack values is reduce to 8.24. And since we are getting  positive slack value, it implies that there is no timing violation in the layout.
 
-<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/77f123ae-d70e-48de-a20d-8b314e0dc8a3">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/77f123ae-d70e-48de-a20d-8b314e0dc8a3">
 
 Now, the next step is to do post-routing STA analysis, which involves the extraction of parasitic effects (SPEF). The extraction of file needs to be done outside of OpenLANE. Under the results>>routing folder, resulting .spef file can be located.
 
-<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/b014d563-184b-429f-9e26-4a13e9164c31">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/b014d563-184b-429f-9e26-4a13e9164c31">
 
 This is the final generated layout after routing.
 
-<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/bfd8d05c-70b1-4967-bb3c-fa94870b9b0a">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/bfd8d05c-70b1-4967-bb3c-fa94870b9b0a">
 
 Below image is the zoomed version of previous image.
 
-<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/83260aa1-472f-4209-8f73-931d82e87a2c">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/83260aa1-472f-4209-8f73-931d82e87a2c">
 
 Here we can easily see the routing between the macros and cell in the layout.
 
-<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/28ee020e-7a2e-4e9b-bbb4-601ea637c616">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/28ee020e-7a2e-4e9b-bbb4-601ea637c616">
 
 And, in the following image we can see routing through padding.
 
-<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1830f258-3bb2-40a4-814b-c409ca64c950">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1830f258-3bb2-40a4-814b-c409ca64c950">
 
 So the final positive slack we are getting around 14 ns. Hence, there is no timing violation in the design. And our design will work perfectly.
 
-<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/58bec50d-42c1-4c37-abba-7766fc50ef99">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/58bec50d-42c1-4c37-abba-7766fc50ef99">
 
 
 
