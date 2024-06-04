@@ -399,7 +399,7 @@ _drc why_
 # Day 4
 ## Pre–Layout Timing Analysis and importance of good clock tree
 ## Timing modeling Using Delay table 
-**1.Lab Steps to Convert grid info to track info **
+**1.Lab Steps to Convert grid info to track info**
 
 Next, we need to extract the .lef file from the .mag file and place it into the picorv32a flow.
 
@@ -432,7 +432,7 @@ _help grid_
 
 <img width="388" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a0b66fd3-2c71-43ed-a924-47034ee34446">
 
-**Lab steps to convert magic layout to std cell LEF
+**Lab steps to convert magic layout to std cell LEF**
 
 Next, we need to determine the names and values for the ports. We can assign values to different ports, and for the power and ground ports, we must change the 'attach to layer' setting to Metal1.
 
@@ -451,7 +451,8 @@ _magic -T sky130A.tech sky130_vsdinv.mag &_
 
 <img width="402" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/27a21e1b-8e2b-4aa9-99cf-86b3f88bb823">
 
-**Introduction to timing libs and steps to include new cell in synthesis
+**Introduction to timing libs and steps to include new cell in synthesis**
+
 With the .lef file created, the next step is to integrate it into picorv32a. Before doing this, we need to move the files to the src folder, where all the design files are located.
 
 To do this we can copy the file using command _cp _
@@ -471,7 +472,9 @@ Open the config.tcl file and insert the commands depicted in the image below.
 
 <img width="373" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/d16a5cbd-4f5d-452c-9e9d-3fbad1f0c753">
 
-**OPENLANE:  Now we will go to the open lane directory and we will execute the docker command –
+**OPENLANE:**
+
+Now we will go to the open lane directory and we will execute the docker command –
 _./flow.tcl -interactive_
 
 _package require openlane 0.9_
@@ -490,7 +493,7 @@ _run_synthesis_
 
 <img width="458" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/32830d56-077a-4c1e-867f-95e0a7e9c6d2">
 
-**Lab Steps to configure synthesis settings to fix slack and include vsdinv
+**Lab Steps to configure synthesis settings to fix slack and include vsdinv**
 
 We'll attempt to adjust the parameters of our cell by consulting the README.md file located in the configuration folder within the OpenLANE directory. This README.md file provides details about the cell parameters.
 
