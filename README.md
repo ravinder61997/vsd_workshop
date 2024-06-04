@@ -12,26 +12,35 @@ OpenLANE excels at handling these steps entirely by itself, aiming for a push-bu
 The introductory workshop on Day 1 provided a comprehensive overview of the RTL to GDSII flow, elucidating the seamless transformation of Verilog code into physical design. We as participants gained insights into the fundamental principles underlying the RISC-V processor architecture, and how these concepts translate into layout design. Crucially, the session delved into the intricate relationship between software applications and hardware, elucidating the pivotal role of compilers in bridging these domains. Additionally, attendees were introduced to the concept of Process Design Kits (PDKs), further enhancing their understanding of the integrated circuit design process.
 ## OPENLANE in Terminal 
 During this session, we'll dive into the synthesis process for the specific design, picorv32, utilizing the OpenLane flow. Our objective is to generate the netlist and other essential reports following the synthesis step.
+
 •	Before proceeding, it's imperative to ensure the smooth operation of the virtual machine environment.
+
 •	Once everything is confirmed to be functioning optimally, we'll observe a terminal interface within the virtual machine environment, resembling the following:
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/a834119a-7e98-430c-942b-f1f78c53096d)
 
 •	Before moving forward, let's navigate to the directory path: Desktop/work/tools/openlane_working_dir/openlane. This directory is essential for executing the synthesis steps effectively.
+
 •	After that we will type docker command. why we are using docker whats the purpose of this?
+
 Docker is like a magic box that bundles up all the stuff needed to run a program, like OpenLane for chip design. It makes sure everything works the same no matter where you run it. So, instead of setting up everything from scratch, you just use this box, called a container, and everything runs smoothly, saving you time and headaches.
+
 •	When we run docker command the terminal will look like the below image-
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/2ae9a9c3-0def-4905-8855-fe89175a3ed5)
 
 •	Next, step is to run the /flow.tcl script -interactive command. It is widely used in EDA tools to automate tasks , such as synthesis,placement,routing,timing analysis.
+
 •	-interactive – Instead of running the script non-stop it allow the user to enter additional commands or modify the execution flow integrity.
+
 •	Hence after using this command we get the terminal like below image-
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/0d5e7d2e-d564-49fe-8190-ffef26425a20)
 
 •	Before diving into the synthesis step, we need to execute these two commands:
+
 1.)	package require openlane 0.9: This command ensures that we have the necessary OpenLane tools and libraries installed, specifically version 0.9, which is compatible with our setup.
+
 2.)	prep -design picorv32a: This command prepares the environment for the specific design, picorv32a, ensuring that all required files, configurations, and settings are in place before proceeding further.
 Executing these commands ensures that we're set up properly and ready to move forward with the synthesis process.
 
@@ -48,11 +57,13 @@ Executing these commands ensures that we're set up properly and ready to move fo
 ### ASSIGNMENT-1
 #### We need to find the Flip-flop ratio. But what is FF ratio and what it indicates?
 The flip-flop ratio in digital design refers to the proportion of flip-flops (sequential elements) to the total number of logic gates (combinational elements) in a circuit. It signifies the balance between storage elements and logic elements within a design. A higher flip-flop ratio indicates a design with more sequential logic, potentially implying higher power consumption and slower clock speeds, while a lower ratio suggests more combinational logic, which might impact design timing and complexity.
+
 •	In the generated netlist, the D flip-flops are denoted as dfxtp_2 
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/fbff20da-04ad-4f61-a9ee-ae676429460e)
 
 •	Total number of cells are 14876 
+
 •	From the total number of cells there are 1613 numbers of dff.
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/82792bc7-3fa8-4cb5-aad2-88e6e9ed76dd)
@@ -60,27 +71,44 @@ The flip-flop ratio in digital design refers to the proportion of flip-flops (se
 •	The calculated ratio based on this is approximately 10.8%, indicating that D flip-flops represent a minority of about 10.8% of the total cells in the design.
 
 # Day 2
+
 # Good Floorplan Vs Bad Floorplan and Introduction to Library cell 
+
 ### Introduction to Floorplan: 
+
 Floorplanning is a critical step in VLSI design where the placement of major functional blocks is determined within the chip's layout. It significantly impacts the performance, power consumption, and manufacturability of the chip.
+
 ### Good vs. Bad Floorplan: 
+
 A good floorplan optimizes area utilization, minimizes wire lengths, and ensures efficient heat dissipation. In contrast, a bad floorplan leads to wasted space, increased delay due to longer interconnects, and potential thermal issues.
 
 On day 1, we covered the workshop agenda, introduced OpenLane, and discussed the various tools involved. Using the example of the existing design, picorv32a, we generated a netlist through the synthesis step. Now, we need to focus on the floorplanning and placement of the specified design.
+
 Utilization Factor ,Aspect Ratio,De-coupling Capacitor and Power Planning -
+
 So we understood the basic of floorplaning and what are differences between good and bad floorplan. Now we will understand the very essential parameter for floorplaning as given below-
+
 ### 1.	Utilization factor 
+
 The core utilization factor in floorplanning is a measure of how efficiently the core area of a chip is utilized. It is calculated as the ratio of the area occupied by the design's core logic to the total core area available. For example, if a design's core logic occupies 80% of the available core area, the core utilization factor would be 0.8 or 80%. A higher utilization factor indicates better utilization of the core area and potentially more efficient chip design
+
 ### 2.	Aspect Ratio 
+
 Aspect ratio in chip design refers to the ratio between the width and height of the chip's core area. It is calculated by dividing the width of the core by its height. For example, if a chip's core area is 10mm wide and 5mm high, the aspect ratio would be 2:1. Aspect ratio plays a crucial role in floorplanning and layout optimization, influencing factors such as wire lengths, routing congestion, and overall chip performance
+
 ### 3.	Decoupling Capacitor 
+
 A decoupling capacitor is an electronic component used in circuit design to reduce noise and stabilize power supply voltages. It is placed strategically near integrated circuits (ICs) to provide a local energy reservoir, minimizing voltage fluctuations caused by rapid changes in current demand within the ICs.
+
 ### 4.	Power Planning
 Power planning is a crucial step in chip design that involves ensuring stable and efficient distribution of power throughout the integrated circuit (IC). It includes strategies such as placing power rails, adding decoupling capacitors, and optimizing power grid routing to minimize voltage drops and noise. Effective power planning is essential for maintaining reliable operation and reducing power consumption in IC designs.
+
 ### 5.	Pin Placement 
 Pin placement is the process of strategically positioning input/output (I/O) pins on a chip's layout to facilitate connectivity with external devices and other components. It involves determining the locations and assignments of pins based on design specifications, signal integrity requirements, and routing considerations. Proper pin placement is critical for ensuring efficient signal routing, minimizing signal delays, and maintaining overall design functionality.
+
 ### 6.	Placement Blockages 
 Placement blockage refers to designated areas within a chip's layout where certain components or structures are not allowed to be placed. These blockages are defined to ensure proper spacing, avoid interference, or reserve space for specific functions such as routing channels or power distribution. Placement blockages are crucial for maintaining design integrity, preventing signal degradation, and optimizing chip layout for efficient manufacturing processes.
+
 #### Step to run Floorplan Using Openlane – 
 •	Before starting floorplanning, we need certain configuration switches or parameters that we can obtain from OpenLane's configuration-
 
@@ -90,7 +118,8 @@ Placement blockage refers to designated areas within a chip's layout where certa
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/1063cd5c-898f-4162-989c-0ce09532a783)
 
-•	While the default core utilization ratio is set at 50% and the aspect ratio at 1, these values can be adjusted according to specific requirements. Other parameters can also be modified as needed to meet the given specifications. 
+•	While the default core utilization ratio is set at 50% and the aspect ratio at 1, these values can be adjusted according to specific requirements. Other parameters can also be modified as needed to meet the given specifications.
+
 •	We can see this core utilization when we execute the command floorplan.tcl – 
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/4049a680-3d86-4fb8-b7d0-ba53fed03632)
@@ -101,7 +130,8 @@ Placement blockage refers to designated areas within a chip's layout where certa
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/b3c0fe18-47e8-423c-930e-daff760ce597)
 
-•	Now we after synthesis and PDN generation we will see the layout of floorplan in magic tool by using the below command - magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def
+•	Now we after synthesis and PDN generation we will see the layout of floorplan in magic tool by using the below command 
+_- magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def_
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/72402657-bf72-4cb5-9ff3-f41a50ee1fd4)
 
@@ -117,7 +147,8 @@ Placement done in two steps  1st is global and after that detailed.
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/0ef62d71-0877-4675-a915-04cfb28f4922)
 
-•	Now after generating floorplan layout we will generate placement layout in magic tool- magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def
+•	Now after generating floorplan layout we will generate placement layout in magic tool
+_- magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def_
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/8014bf26-0e27-4196-8045-f053b8b04fad)
 
@@ -168,7 +199,9 @@ The switching threshold 𝑉𝑚 of a CMOS inverter is the input voltage at whic
 <img width="382" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/4a9d5ad4-a620-43d3-93fe-22412ee75216">
 
 ## L4 – LAB STEPS TO GIT CLONE vsdstdcelldesign
-### 1.	Clone a custom inverter standard cell design from a GitHub repository.
+
+#### 1.	Clone a custom inverter standard cell design from a GitHub repository.
+
 #Change directory to openlane
 _cd Desktop/work/tools/openlane_working_dir/openlane_
 #Clone the repository with custom inverter design
@@ -184,13 +217,14 @@ _magic -T sky130A.tech sky130_inv.mag &_
 
 <img width="366" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/44e111d6-9412-4b97-98c2-5a5416fdc267">
 
-### 2. Now we will load inverter layout in magic tool 
+#### 2. Now we will load inverter layout in magic tool 
 
 <img width="388" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/05739bfb-7d69-47af-b6fa-e6b02d41c946">
 
 <img width="398" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a95fd1da-077a-45b9-a9c4-b491cc966128">
 
-### 3.	SPICE extraction of an inverter using the Magic tool involves generating a SPICE netlist from the layout. (#as shown in the above fig)
+#### 3.	SPICE extraction of an inverter using the Magic tool involves generating a SPICE netlist from the layout. (#as shown in the above fig)
+
 #Check current directory 
 _pwd_ 
 #Extraction command to extract to .ext format
@@ -203,7 +237,8 @@ _ext2spice_
 
 <img width="433" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/4da1fa2b-5b8a-465b-8fd7-dc5b8442f3f7">
 
-### 4.	Post-layout ngspice simulations.
+#### 4.	Post-layout ngspice simulations.
+
 Here are the given commands to perform ngspice simulations
 #Command to directly load spice file for simulation to ngspice
 _ngspice sky130_inv.spice_
@@ -246,6 +281,7 @@ fall cell delay (tfc) = (X0’-X0)                   tfc = 0.035 ns
 
 5.	Identify issues in the Design Rule Check (DRC) section of the old Magic Tech file for the SkyWater process and correct them.
 Here are the following commands mentioned to download and view the corrupted skywater magic tech file –
+
 #Change to home directory
 _cd_
 #Command to download the lab files
