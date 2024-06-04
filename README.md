@@ -283,18 +283,31 @@ fall cell delay (tfc) = (X0’-X0)                   tfc = 0.035 ns
 Here are the following commands mentioned to download and view the corrupted skywater magic tech file –
 
 #Change to home directory
+
 _cd_
+
 #Command to download the lab files
+
 _wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz_
+
 #Since lab file is compressed command to extract it
+
 _tar xfz drc_tests.tgz_
+
 #Change directory into the lab folder
+
 _cd drc_tests_
+
 #List all files and directories present in the current directory
+
 _ls -al_
+
 #Command to view .magicrc file
+
 _gvim .magicrc_
+
 #Command to open magic tool in better graphics
+
 _magic -d XR &_
 
 <img width="530" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/ee8acaa2-9a5e-4ba1-9a67-5831127269e0">
@@ -333,10 +346,15 @@ To update DRC new command is inserted using vim in sky130A.tech
 <img width="367" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/2a8e6882-6d47-430b-850b-13d961a6e6cb">
 
 #Loading updated tech file
+
 _tech load sky130A.tech_
+
 #Must re-run drc check to see updated drc errors
+
 _drc check_
+
 #Selecting region displaying the new errors and getting the error messages 
+
 _drc why_
 
 <img width="355" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/5bb45ec2-02d8-4430-9ac2-19366d535fd2">
@@ -359,13 +377,21 @@ To update DRC new command is inserted in sky130A.tech file
 <img width="386" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1c829f11-97bf-4e72-ad9a-1f24e9c4aab4">
 
 Command to run in magic tkcon window – 
-#Loading updated tech file 
+
+#Loading updated tech file
+
 _tech load sky130A.tech_
+
 #change drc style
+
 _drc style drc(full)_
+
 #check drc 
+
 _drc check_
+
 #See errors in selecting area 
+
 _drc why_
 
 <img width="372" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/692ed706-7855-4209-a7c3-5b87cde7e8f3">
