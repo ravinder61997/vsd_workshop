@@ -168,24 +168,24 @@ So, the width of chip is 660.685 micrometer and height of the chip is 671.405 mi
 ## L0 – SPICE DECK Creation for CMOS inverter 
 The aim is to create a SPICE (Simulation Program with Integrated Circuit Emphasis) deck for a CMOS circuit that involves defining the circuit components, their interconnections, and the simulation parameters. 
 
-<img width="402" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/bb711dc0-7337-41c6-8d73-d7d54230b9d5">
+<img width="350" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/bb711dc0-7337-41c6-8d73-d7d54230b9d5">
 
-<img width="399" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/63dc6a5b-f728-46ea-a526-359f57945be0">
+<img width="350" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/63dc6a5b-f728-46ea-a526-359f57945be0">
 
 ## L1 – SPICE SIMULATION LAB FOR CMOS INVERTER
 ### a.)	When the width of the both n and p mos are same (wp =wn).
 
-<img width="319" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/f9ffaad4-2177-442b-bfbf-8dd0f5106b20">
+<img width="350" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/f9ffaad4-2177-442b-bfbf-8dd0f5106b20">
 
 ### b.)	When width of n and p mos are not equal (wp = 2.5*wn) 
 
-<img width="329" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/f9959661-5892-4317-90ea-e0b282eed51d">
+<img width="350" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/f9959661-5892-4317-90ea-e0b282eed51d">
 
 RESULTS OBTAINED – 
 
-<img width="231" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1788fa87-0007-4ac2-84a7-6594e92206bd">
+<img width="350" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1788fa87-0007-4ac2-84a7-6594e92206bd">
 
-<img width="251" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/07ea1859-cc93-4596-8a65-aec5cde72e43">
+<img width="350" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/07ea1859-cc93-4596-8a65-aec5cde72e43">
 
 ## L2 – SWITCHING THRESHOLD Vm
 The switching threshold 𝑉𝑚 of a CMOS inverter is the input voltage at which the output voltage is equal to the input voltage. At this point, the inverter is transitioning from one logic level to another (e.g., from high to low or low to high). The switching threshold is an important parameter because it defines the inverter's behaviour in terms of noise margin and signal integrity.
