@@ -575,9 +575,13 @@ It is an algorithm for maze routing, used to find paths for routing nets on a ch
 Till lab 4 we have executed the CTS, now we for executing routing, the first step would be to generate Power distribution network (PDN) by using following commands:
 
 _docker_
+
 _.flow.tcl -interactive_
+
 _package require openlane 0.9_
+
 _prep design picorv32a tag $date_ (date should be retrieved by executing ls)
+
 _echo $::env(CURRENT_DEF)_
 
 <img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/36d25b56-5fe0-41df-9c88-bfb5e53c8658">
