@@ -116,7 +116,7 @@ Placement done in two steps  1st is global and after that detailed.
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/b035b49f-31d9-45c4-9ee2-f0444420a352)
 
-# DAY-2 Assignment-1
+## DAY-2 Assignment-1
 •	To view the floorplan, we need to examine the results. In the results, there is a DEF (Design Exchange Format) file available. Opening this file provides all the information about the die area, specified as (0 0) to (660685 671405). The unit distance is given in microns (1000), meaning 1 micron equals 1000 database units. Therefore, 660685 and 671405 are in database units. By dividing these values by 1000, we can determine the dimensions of the chip in micrometers
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/f1970b8a-0aac-40e1-b833-02d1b6bfb35e)
@@ -236,20 +236,20 @@ X0 = 4.05264e-09    Y0 =   1.74977                            X0’ = 4.08713e-0
 fall cell delay (tfc) = (X0’-X0)                   tfc = 0.035 ns
 
 5.	Identify issues in the Design Rule Check (DRC) section of the old Magic Tech file for the SkyWater process and correct them.
-Here are the following commands mentioned to download and view the corrupted skywater magic tech file – 
-# Change to home directory
+Here are the following commands mentioned to download and view the corrupted skywater magic tech file –
+#Change to home directory
 cd
-# Command to download the lab files
+#Command to download the lab files
 wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
-# Since lab file is compressed command to extract it
+#Since lab file is compressed command to extract it
 tar xfz drc_tests.tgz
-# Change directory into the lab folder
+#Change directory into the lab folder
 cd drc_tests
-# List all files and directories present in the current directory
+#List all files and directories present in the current directory
 ls -al
-# Command to view .magicrc file
+#Command to view .magicrc file
 gvim .magicrc
-# Command to open magic tool in better graphics
+#Command to open magic tool in better graphics
 magic -d XR &
 
 <img width="530" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/ee8acaa2-9a5e-4ba1-9a67-5831127269e0">
@@ -287,11 +287,11 @@ To update DRC new command is inserted using vim in sky130A.tech
 
 <img width="367" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/2a8e6882-6d47-430b-850b-13d961a6e6cb">
 
-#### Loading updated tech file
+#Loading updated tech file
 tech load sky130A.tech
-#### Must re-run drc check to see updated drc errors
+#Must re-run drc check to see updated drc errors
 drc check
-#### Selecting region displaying the new errors and getting the error messages 
+#Selecting region displaying the new errors and getting the error messages 
 drc why
 
 <img width="355" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/5bb45ec2-02d8-4430-9ac2-19366d535fd2">
