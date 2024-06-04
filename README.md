@@ -559,6 +559,104 @@ _tap_decap_or_
 
 <img width="419" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/8a5e47e3-718a-4602-9ca9-5ced52bea469">
 
+# Day 5
+
+## Final step for RTL2GDS using tritinRoute and openSTA
+
+The final step in Physical design would be routing and Design Rule check (DRC). Global and detailed routing was performed using tritinRoute . After that Static Timing Analysis was performed using openSTA. And the DRC checks was applied to ensure that layout matches he schematic and adheres to design rules.
+
+### 1. Routing: 
+Routing involves establishing the physical connections between various circuit elements (standard cells, macros, I/O pins) on a chip layout according to the netlist generated during the synthesis and placement phases. This step ensures that all the electrical connections are correctly implemented while adhering to design rules and optimizing for performance metrics like timing, power, and area. The path between one source and target should be the shortest and the same is explained by Lee algorithm.
+
+#### Lee algorithm 
+
+It is an algorithm for maze routing, used to find paths for routing nets on a chip. It guarantees to find the shortest path between two points if one exists and is particularly useful for ensuring that routing respects design rules. 
+
+Till lab 4 we have executed the CTS, now we for executing routing, the first step would be to generate Power distribution network (PDN) by using following commands:
+
+_docker_
+_.flow.tcl -interactive_
+_package require openlane 0.9_
+_prep design picorv32a tag $date_ (date should be retrieved by executing ls)
+_echo $::env(CURRENT_DEF)_
+
+<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/36d25b56-5fe0-41df-9c88-bfb5e53c8658">
+
+_gen_pdn_
+
+<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/319aacc8-1e69-4bc7-9736-87f0d5cd4c18">
+
+<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/b28996b5-cb33-45ce-82a6-2bf3dc72be0a">
+
+Below image shows that PDN is generated successfully.
+
+<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/ee8a4f6c-443b-44f1-9a77-a9372bdc4c57">
+
+
+The resulting file 15-pdn.def contains the information from cts.def as well as the power distribution network.
+
+Below image shows README.md file located in the configuration folder of the OpenLANE directory. One can refer to this file to understand about the various switches available for routing.
+
+<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/39fafc00-e4ff-413f-8632-d734471edefb">
+
+There are two types of routing, one is global routing and second is Detailed routing. For default, global routing is used. Command to run default routing:
+
+_run_routing_
+
+<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/2d2e9359-0a74-4e63-996b-0fe1bd4f8a47">
+
+After executing the command _run_routing_ our slack values is reduce to 8.24. And since we are getting  positive slack value, it implies that there is no timing violation in the layout.
+
+<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/77f123ae-d70e-48de-a20d-8b314e0dc8a3">
+
+Now, the next step is to do post-routing STA analysis, which involves the extraction of parasitic effects (SPEF). The extraction of file needs to be done outside of OpenLANE. Under the results>>routing folder, resulting .spef file can be located.
+
+<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/b014d563-184b-429f-9e26-4a13e9164c31">
+
+This is the final generated layout after routing.
+
+<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/bfd8d05c-70b1-4967-bb3c-fa94870b9b0a">
+
+Below image is the zoomed version of previous image.
+
+<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/83260aa1-472f-4209-8f73-931d82e87a2c">
+
+Here we can easily see the routing between the macros and cell in the layout.
+
+<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/28ee020e-7a2e-4e9b-bbb4-601ea637c616">
+
+And, in the following image we can see routing through padding.
+
+<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/1830f258-3bb2-40a4-814b-c409ca64c950">
+
+So the final positive slack we are getting around 14 ns. Hence, there is no timing violation in the design. And our design will work perfectly.
+
+<img width="452" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/58bec50d-42c1-4c37-abba-7766fc50ef99">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
