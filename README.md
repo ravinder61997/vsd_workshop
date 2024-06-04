@@ -168,7 +168,7 @@ So, the width of chip is 660.685 micrometer and height of the chip is 671.405 mi
 ## L0 – SPICE DECK Creation for CMOS inverter 
 The aim is to create a SPICE (Simulation Program with Integrated Circuit Emphasis) deck for a CMOS circuit that involves defining the circuit components, their interconnections, and the simulation parameters. 
 
-<img width="350" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/bb711dc0-7337-41c6-8d73-d7d54230b9d5">
+<img width="1000" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/bb711dc0-7337-41c6-8d73-d7d54230b9d5">
 
 <img width="350" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/63dc6a5b-f728-46ea-a526-359f57945be0">
 
