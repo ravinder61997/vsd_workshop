@@ -1,4 +1,13 @@
 # VSD Digital VLSI SoC Design and Planning
+OpenLANE is an open-source tool that automates the process of converting a Register-Transfer Level (RTL) description of a circuit into a GDSII file, ready for chip manufacturing.  This RTL2GDS flow can be broken down into several stages:
+
+1. **Synthesis:**  The RTL code is translated into a netlist, a list of interconnected logic cells.
+2. **Placement & Clock Tree Synthesis (CTS):**  The logic cells are arranged on the chip floorplan, considering area and timing constraints. A clock distribution network is also designed to ensure all parts of the circuit receive clock signals reliably.
+3. **Routing:**  Connections between logic cells are implemented with metal wires. OpenLANE uses tools like Magic to ensure these wires follow the design rules of the chosen chip fabrication process (PDK).
+4. **Design Rule Check (DRC) & Layout Versus Schematic (LVS):**  The resulting layout is checked for errors against the PDK rules and verified to ensure it matches the original RTL functionality.
+
+OpenLANE excels at handling these steps entirely by itself, aiming for a push-button experience. This makes it a valuable tool for learning and experimenting with chip design, particularly for designs targeting the Skywater 130nm open-source PDK.
+ 
 # DAY-1 
 The introductory workshop on Day 1 provided a comprehensive overview of the RTL to GDSII flow, elucidating the seamless transformation of Verilog code into physical design. We as participants gained insights into the fundamental principles underlying the RISC-V processor architecture, and how these concepts translate into layout design. Crucially, the session delved into the intricate relationship between software applications and hardware, elucidating the pivotal role of compilers in bridging these domains. Additionally, attendees were introduced to the concept of Process Design Kits (PDKs), further enhancing their understanding of the integrated circuit design process.
 ## OPENLANE in Terminal 
@@ -116,7 +125,7 @@ Placement done in two steps  1st is global and after that detailed.
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/b035b49f-31d9-45c4-9ee2-f0444420a352)
 
-## DAY-2 Assignment-1
+### Assignment-2
 •	To view the floorplan, we need to examine the results. In the results, there is a DEF (Design Exchange Format) file available. Opening this file provides all the information about the die area, specified as (0 0) to (660685 671405). The unit distance is given in microns (1000), meaning 1 micron equals 1000 database units. Therefore, 660685 and 671405 are in database units. By dividing these values by 1000, we can determine the dimensions of the chip in micrometers
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/f1970b8a-0aac-40e1-b833-02d1b6bfb35e)
@@ -160,18 +169,18 @@ The switching threshold 𝑉𝑚 of a CMOS inverter is the input voltage at whic
 
 ## L4 – LAB STEPS TO GIT CLONE vsdstdcelldesign
 ### 1.	Clone a custom inverter standard cell design from a GitHub repository.
-#### Change directory to openlane
-cd Desktop/work/tools/openlane_working_dir/openlane
-#### Clone the repository with custom inverter design
-git clone https://github.com/nickson-jose/vsdstdcelldesign
-#### Change into repository directory
-cd vsdstdcelldesign
-#### Copy magic tech file to the repo directory for easy access
-cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech .
-#### Check contents whether everything is present
-Ls -ltr
-#### Command to open custom inverter layout in magic
-magic -T sky130A.tech sky130_inv.mag &
+#Change directory to openlane
+_cd Desktop/work/tools/openlane_working_dir/openlane_
+#Clone the repository with custom inverter design
+_git clone https://github.com/nickson-jose/vsdstdcelldesign_
+#Change into repository directory
+_cd vsdstdcelldesign_
+#Copy magic tech file to the repo directory for easy access
+_cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech ._
+#Check contents whether everything is present
+_ls -ltr_
+#Command to open custom inverter layout in magic
+_magic -T sky130A.tech sky130_inv.mag &_
 
 <img width="366" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/44e111d6-9412-4b97-98c2-5a5416fdc267">
 
@@ -182,25 +191,25 @@ magic -T sky130A.tech sky130_inv.mag &
 <img width="398" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/a95fd1da-077a-45b9-a9c4-b491cc966128">
 
 ### 3.	SPICE extraction of an inverter using the Magic tool involves generating a SPICE netlist from the layout. (#as shown in the above fig)
-#### Check current directory 
-pwd 
-#### Extraction command to extract to .ext format
-extract all
-#### Before converting ext to spice this command enable the parasitic extraction also
-ext2spice cthresh 0 rthresh 0
-#### Converting to ext to spice
-ext2spice
-#### Here we used vim command to edit SPICE file
+#Check current directory 
+_pwd_ 
+#Extraction command to extract to .ext format
+_extract all_
+#Before converting ext to spice this command enable the parasitic extraction also
+_ext2spice cthresh 0 rthresh 0_
+#Converting to ext to spice
+_ext2spice_
+#Here we used vim command to edit SPICE file
 
 <img width="433" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/4da1fa2b-5b8a-465b-8fd7-dc5b8442f3f7">
 
 ### 4.	Post-layout ngspice simulations.
 Here are the given commands to perform ngspice simulations
-#### Command to directly load spice file for simulation to ngspice
-ngspice sky130_inv.spice
+#Command to directly load spice file for simulation to ngspice
+_ngspice sky130_inv.spice_
  
-#### Now that we have entered ngspice with the simulation spice file loaded we just have to load the plot
-plot y vs time a
+#Now that we have entered ngspice with the simulation spice file loaded we just have to load the plot
+_plot y vs time a_
 
 <img width="374" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/53b1910c-1aae-4cbd-8510-87dc5243702f">
 
@@ -210,7 +219,7 @@ Here I have given the screenshot of generated plot of O/P (a) vs O/P(y) -
 
 <img width="376" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/650cc103-f01e-40dd-9b97-24669eeeb472">
 
-## ASSIGNMENT -1
+### ASSIGNMENT -3
 After getting plot we have to find out the value of 4 – parameter –
 1.	Rise Transition time. 
 2.	Fall Transition time.  
@@ -238,23 +247,23 @@ fall cell delay (tfc) = (X0’-X0)                   tfc = 0.035 ns
 5.	Identify issues in the Design Rule Check (DRC) section of the old Magic Tech file for the SkyWater process and correct them.
 Here are the following commands mentioned to download and view the corrupted skywater magic tech file –
 #Change to home directory
-cd
+_cd_
 #Command to download the lab files
-wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
+_wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz_
 #Since lab file is compressed command to extract it
-tar xfz drc_tests.tgz
+_tar xfz drc_tests.tgz_
 #Change directory into the lab folder
-cd drc_tests
+_cd drc_tests_
 #List all files and directories present in the current directory
-ls -al
+_ls -al_
 #Command to view .magicrc file
-gvim .magicrc
+_gvim .magicrc_
 #Command to open magic tool in better graphics
-magic -d XR &
+_magic -d XR &_
 
 <img width="530" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/ee8acaa2-9a5e-4ba1-9a67-5831127269e0">
 
-.magicrc file
+_.magicrc file_
 
 <img width="527" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/0c1f4b49-61ac-46dd-a82f-8b77b656f44f">
 
@@ -288,11 +297,11 @@ To update DRC new command is inserted using vim in sky130A.tech
 <img width="367" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/2a8e6882-6d47-430b-850b-13d961a6e6cb">
 
 #Loading updated tech file
-tech load sky130A.tech
+_tech load sky130A.tech_
 #Must re-run drc check to see updated drc errors
-drc check
+_drc check_
 #Selecting region displaying the new errors and getting the error messages 
-drc why
+_drc why_
 
 <img width="355" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/5bb45ec2-02d8-4430-9ac2-19366d535fd2">
 
@@ -315,13 +324,13 @@ To update DRC new command is inserted in sky130A.tech file
 
 Command to run in magic tkcon window – 
 #Loading updated tech file 
-tech load sky130A.tech
+_tech load sky130A.tech_
 #change drc style
-drc style drc(full)
+_drc style drc(full)_
 #check drc 
-drc check
+_drc check_
 #See errors in selecting area 
-drc why
+_drc why_
 
 <img width="372" alt="image" src="https://github.com/ravinder61997/vsd_workshop/assets/170663775/692ed706-7855-4209-a7c3-5b87cde7e8f3">
 
