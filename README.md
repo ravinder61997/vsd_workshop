@@ -635,7 +635,7 @@ And, in the following image we can see routing through padding.
 
 So the final positive slack we are getting around 14 ns. Hence, there is no timing violation in the design. And our design will work perfectly.
 
-![image]("https://github.com/ravinder61997/vsd_workshop/assets/170663775/58bec50d-42c1-4c37-abba-7766fc50ef99")
+![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/58bec50d-42c1-4c37-abba-7766fc50ef99)
 
 ![image](https://github.com/ravinder61997/vsd_workshop/assets/170663775/a834119a-7e98-430c-942b-f1f78c53096d)
 
